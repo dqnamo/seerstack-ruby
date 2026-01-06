@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ""
   s.homepage = "https://gemdocs.org/gems/seerstack"
   s.metadata["homepage_uri"] = s.homepage
-  s.metadata["source_code_uri"] = "https://github.com/stainless-sdks/seerstack-ruby"
+  s.metadata["source_code_uri"] = "https://github.com/dqnamo/seerstack-ruby"
   s.metadata["rubygems_mfa_required"] = false.to_s
   s.required_ruby_version = ">= 3.2.0"
 
