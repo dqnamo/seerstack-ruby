@@ -1,0 +1,15 @@
+module Seerstack
+  module Resources
+    class Capture
+      def create: (
+        name: String,
+        ?data: ::Hash[Symbol, top?],
+        ?timestamp: Time,
+        ?user_id: String,
+        ?request_options: Seerstack::request_opts
+      ) -> Seerstack::Models::CaptureCreateResponse
+
+      def initialize: (client: Seerstack::Client) -> void
+    end
+  end
+end

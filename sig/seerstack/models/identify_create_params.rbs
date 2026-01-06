@@ -1,0 +1,47 @@
+module Seerstack
+  module Models
+    type identify_create_params =
+      {
+        user_id: String,
+        attributes: ::Hash[Symbol, top?],
+        email: String,
+        name: String
+      }
+      & Seerstack::Internal::Type::request_parameters
+
+    class IdentifyCreateParams < Seerstack::Internal::Type::BaseModel
+      extend Seerstack::Internal::Type::RequestParameters::Converter
+      include Seerstack::Internal::Type::RequestParameters
+
+      attr_accessor user_id: String
+
+      attr_reader attributes: ::Hash[Symbol, top?]?
+
+      def attributes=: (::Hash[Symbol, top?]) -> ::Hash[Symbol, top?]
+
+      attr_reader email: String?
+
+      def email=: (String) -> String
+
+      attr_reader name: String?
+
+      def name=: (String) -> String
+
+      def initialize: (
+        user_id: String,
+        ?attributes: ::Hash[Symbol, top?],
+        ?email: String,
+        ?name: String,
+        ?request_options: Seerstack::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        user_id: String,
+        attributes: ::Hash[Symbol, top?],
+        email: String,
+        name: String,
+        request_options: Seerstack::RequestOptions
+      }
+    end
+  end
+end
