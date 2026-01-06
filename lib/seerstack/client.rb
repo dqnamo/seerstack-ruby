@@ -19,11 +19,11 @@ module Seerstack
     # @return [String]
     attr_reader :api_key
 
-    # @return [Seerstack::Resources::Capture]
-    attr_reader :capture
+    # @return [Seerstack::Resources::Events]
+    attr_reader :events
 
-    # @return [Seerstack::Resources::Identify]
-    attr_reader :identify
+    # @return [Seerstack::Resources::Users]
+    attr_reader :users
 
     # @api private
     #
@@ -72,8 +72,8 @@ module Seerstack
         max_retry_delay: max_retry_delay
       )
 
-      @capture = Seerstack::Resources::Capture.new(client: self)
-      @identify = Seerstack::Resources::Identify.new(client: self)
+      @events = Seerstack::Resources::Events.new(client: self)
+      @users = Seerstack::Resources::Users.new(client: self)
     end
   end
 end

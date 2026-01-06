@@ -2,11 +2,11 @@
 
 module Seerstack
   module Models
-    class IdentifyCreateResponse < Seerstack::Internal::Type::BaseModel
+    class UserIdentifyResponse < Seerstack::Internal::Type::BaseModel
       OrHash =
         T.type_alias do
           T.any(
-            Seerstack::Models::IdentifyCreateResponse,
+            Seerstack::Models::UserIdentifyResponse,
             Seerstack::Internal::AnyHash
           )
         end

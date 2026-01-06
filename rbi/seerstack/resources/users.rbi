@@ -2,7 +2,7 @@
 
 module Seerstack
   module Resources
-    class Identify
+    class Users
       # Identify a user
       sig do
         params(
@@ -11,9 +11,9 @@ module Seerstack
           email: String,
           name: String,
           request_options: Seerstack::RequestOptions::OrHash
-        ).returns(Seerstack::Models::IdentifyCreateResponse)
+        ).returns(Seerstack::Models::UserIdentifyResponse)
       end
-      def create(
+      def identify(
         user_id:,
         attributes: nil,
         email: nil,

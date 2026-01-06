@@ -1,8 +1,8 @@
 module Seerstack
   module Models
-    type capture_create_response = { success: bool }
+    type event_capture_response = { success: bool }
 
-    class CaptureCreateResponse < Seerstack::Internal::Type::BaseModel
+    class EventCaptureResponse < Seerstack::Internal::Type::BaseModel
       attr_accessor success: bool
 
       def initialize: (success: bool) -> void

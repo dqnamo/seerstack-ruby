@@ -1,7 +1,7 @@
 # typed: strong
 
 module Seerstack
-  CaptureCreateParams = Seerstack::Models::CaptureCreateParams
+  EventCaptureParams = Seerstack::Models::EventCaptureParams
 
-  IdentifyCreateParams = Seerstack::Models::IdentifyCreateParams
+  UserIdentifyParams = Seerstack::Models::UserIdentifyParams
 end

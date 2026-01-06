@@ -2,7 +2,7 @@
 
 module Seerstack
   module Resources
-    class Capture
+    class Events
       # Capture an event
       sig do
         params(
@@ -11,9 +11,9 @@ module Seerstack
           timestamp: Time,
           user_id: String,
           request_options: Seerstack::RequestOptions::OrHash
-        ).returns(Seerstack::Models::CaptureCreateResponse)
+        ).returns(Seerstack::Models::EventCaptureResponse)
       end
-      def create(
+      def capture(
         name:,
         data: nil,
         timestamp: nil,

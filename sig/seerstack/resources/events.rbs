@@ -1,13 +1,13 @@
 module Seerstack
   module Resources
-    class Capture
-      def create: (
+    class Events
+      def capture: (
         name: String,
         ?data: ::Hash[Symbol, top?],
         ?timestamp: Time,
         ?user_id: String,
         ?request_options: Seerstack::request_opts
-      ) -> Seerstack::Models::CaptureCreateResponse
+      ) -> Seerstack::Models::EventCaptureResponse
 
       def initialize: (client: Seerstack::Client) -> void
     end

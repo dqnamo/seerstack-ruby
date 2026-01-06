@@ -2,14 +2,14 @@
 
 require_relative "../test_helper"
 
-class Seerstack::Test::Resources::CaptureTest < Seerstack::Test::ResourceTest
-  def test_create_required_params
+class Seerstack::Test::Resources::UsersTest < Seerstack::Test::ResourceTest
+  def test_identify_required_params
     skip("Prism tests are disabled")
 
-    response = @seerstack.capture.create(name: "name")
+    response = @seerstack.users.identify(user_id: "user_id")
 
     assert_pattern do
-      response => Seerstack::Models::CaptureCreateResponse
+      response => Seerstack::Models::UserIdentifyResponse
     end
 
     assert_pattern do

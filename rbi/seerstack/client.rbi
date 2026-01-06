@@ -14,11 +14,11 @@ module Seerstack
     sig { returns(String) }
     attr_reader :api_key
 
-    sig { returns(Seerstack::Resources::Capture) }
-    attr_reader :capture
+    sig { returns(Seerstack::Resources::Events) }
+    attr_reader :events
 
-    sig { returns(Seerstack::Resources::Identify) }
-    attr_reader :identify
+    sig { returns(Seerstack::Resources::Users) }
+    attr_reader :users
 
     # @api private
     sig { override.returns(T::Hash[String, String]) }

@@ -26,9 +26,9 @@ seerstack = Seerstack::Client.new(
   api_key: ENV["SEERSTACK_API_KEY"] # This is the default and can be omitted
 )
 
-capture = seerstack.capture.create(name: "REPLACE_ME")
+response = seerstack.events.capture(name: "REPLACE_ME")
 
-puts(capture.success)
+puts(response.success)
 ```
 
 ### Handling errors
@@ -37,7 +37,7 @@ When the library is unable to connect to the API, or if the API returns a non-su
 
 ```ruby
 begin
-  capture = seerstack.capture.create(name: "REPLACE_ME")
+  event = seerstack.events.capture(name: "REPLACE_ME")
 rescue Seerstack::Errors::APIConnectionError => e
   puts("The server could not be reached")
   puts(e.cause)  # an underlying Exception, likely raised within `net/http`
@@ -80,7 +80,7 @@ seerstack = Seerstack::Client.new(
 )
 
 # Or, configure per-request:
-seerstack.capture.create(name: "REPLACE_ME", request_options: {max_retries: 5})
+seerstack.events.capture(name: "REPLACE_ME", request_options: {max_retries: 5})
 ```
 
 ### Timeouts
@@ -94,7 +94,7 @@ seerstack = Seerstack::Client.new(
 )
 
 # Or, configure per-request:
-seerstack.capture.create(name: "REPLACE_ME", request_options: {timeout: 5})
+seerstack.events.capture(name: "REPLACE_ME", request_options: {timeout: 5})
 ```
 
 On timeout, `Seerstack::Errors::APITimeoutError` is raised.
@@ -124,8 +124,8 @@ You can send undocumented parameters to any endpoint, and read undocumented resp
 Note: the `extra_` parameters of the same name overrides the documented parameters.
 
 ```ruby
-capture =
-  seerstack.capture.create(
+response =
+  seerstack.events.capture(
     name: "REPLACE_ME",
     request_options: {
       extra_query: {my_query_parameter: value},
@@ -134,7 +134,7 @@ capture =
     }
   )
 
-puts(capture[:my_undocumented_property])
+puts(response[:my_undocumented_property])
 ```
 
 #### Undocumented request params
@@ -172,18 +172,18 @@ This library provides comprehensive [RBI](https://sorbet.org/docs/rbi) definitio
 You can provide typesafe request parameters like so:
 
 ```ruby
-seerstack.capture.create(name: "REPLACE_ME")
+seerstack.events.capture(name: "REPLACE_ME")
 ```
 
 Or, equivalently:
 
 ```ruby
 # Hashes work, but are not typesafe:
-seerstack.capture.create(name: "REPLACE_ME")
+seerstack.events.capture(name: "REPLACE_ME")
 
 # You can also splat a full Params class:
-params = Seerstack::CaptureCreateParams.new(name: "REPLACE_ME")
-seerstack.capture.create(**params)
+params = Seerstack::EventCaptureParams.new(name: "REPLACE_ME")
+seerstack.events.capture(**params)
 ```
 
 ## Versioning

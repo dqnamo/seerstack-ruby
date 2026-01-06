@@ -2,8 +2,8 @@
 
 module Seerstack
   module Models
-    # @see Seerstack::Resources::Identify#create
-    class IdentifyCreateParams < Seerstack::Internal::Type::BaseModel
+    # @see Seerstack::Resources::Users#identify
+    class UserIdentifyParams < Seerstack::Internal::Type::BaseModel
       extend Seerstack::Internal::Type::RequestParameters::Converter
       include Seerstack::Internal::Type::RequestParameters
 

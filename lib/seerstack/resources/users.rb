@@ -2,10 +2,10 @@
 
 module Seerstack
   module Resources
-    class Identify
+    class Users
       # Identify a user
       #
-      # @overload create(user_id:, attributes: nil, email: nil, name: nil, request_options: {})
+      # @overload identify(user_id:, attributes: nil, email: nil, name: nil, request_options: {})
       #
       # @param user_id [String]
       # @param attributes [Hash{Symbol=>Object, nil}]
@@ -13,16 +13,16 @@ module Seerstack
       # @param name [String]
       # @param request_options [Seerstack::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Seerstack::Models::IdentifyCreateResponse]
+      # @return [Seerstack::Models::UserIdentifyResponse]
       #
-      # @see Seerstack::Models::IdentifyCreateParams
-      def create(params)
-        parsed, options = Seerstack::IdentifyCreateParams.dump_request(params)
+      # @see Seerstack::Models::UserIdentifyParams
+      def identify(params)
+        parsed, options = Seerstack::UserIdentifyParams.dump_request(params)
         @client.request(
           method: :post,
           path: "identify",
           body: parsed,
-          model: Seerstack::Models::IdentifyCreateResponse,
+          model: Seerstack::Models::UserIdentifyResponse,
           options: options
         )
       end

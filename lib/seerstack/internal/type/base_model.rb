@@ -438,8 +438,8 @@ module Seerstack
         # @return [Hash{Symbol=>Object}]
         #
         # @example
-        #   # `capture_create_response` is a `Seerstack::Models::CaptureCreateResponse`
-        #   capture_create_response => {
+        #   # `event_capture_response` is a `Seerstack::Models::EventCaptureResponse`
+        #   event_capture_response => {
         #     success: success
         #   }
         def deconstruct_keys(keys)

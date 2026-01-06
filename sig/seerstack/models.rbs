@@ -1,5 +1,5 @@
 module Seerstack
-  class CaptureCreateParams = Seerstack::Models::CaptureCreateParams
+  class EventCaptureParams = Seerstack::Models::EventCaptureParams
 
-  class IdentifyCreateParams = Seerstack::Models::IdentifyCreateParams
+  class UserIdentifyParams = Seerstack::Models::UserIdentifyParams
 end

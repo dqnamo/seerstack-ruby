@@ -2,8 +2,8 @@
 
 module Seerstack
   module Models
-    # @see Seerstack::Resources::Capture#create
-    class CaptureCreateParams < Seerstack::Internal::Type::BaseModel
+    # @see Seerstack::Resources::Events#capture
+    class EventCaptureParams < Seerstack::Internal::Type::BaseModel
       extend Seerstack::Internal::Type::RequestParameters::Converter
       include Seerstack::Internal::Type::RequestParameters
 
