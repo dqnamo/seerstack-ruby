@@ -10,9 +10,9 @@ module Seerstack
 
     attr_reader api_key: String
 
-    attr_reader capture: Seerstack::Resources::Capture
+    attr_reader events: Seerstack::Resources::Events
 
-    attr_reader identify: Seerstack::Resources::Identify
+    attr_reader users: Seerstack::Resources::Users
 
     private def auth_headers: -> ::Hash[String, String]
 

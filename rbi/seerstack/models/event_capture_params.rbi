@@ -2,13 +2,13 @@
 
 module Seerstack
   module Models
-    class CaptureCreateParams < Seerstack::Internal::Type::BaseModel
+    class EventCaptureParams < Seerstack::Internal::Type::BaseModel
       extend Seerstack::Internal::Type::RequestParameters::Converter
       include Seerstack::Internal::Type::RequestParameters
 
       OrHash =
         T.type_alias do
-          T.any(Seerstack::CaptureCreateParams, Seerstack::Internal::AnyHash)
+          T.any(Seerstack::EventCaptureParams, Seerstack::Internal::AnyHash)
         end
 
       sig { returns(String) }

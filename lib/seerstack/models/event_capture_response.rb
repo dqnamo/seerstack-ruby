@@ -2,8 +2,8 @@
 
 module Seerstack
   module Models
-    # @see Seerstack::Resources::Identify#create
-    class IdentifyCreateResponse < Seerstack::Internal::Type::BaseModel
+    # @see Seerstack::Resources::Events#capture
+    class EventCaptureResponse < Seerstack::Internal::Type::BaseModel
       # @!attribute success
       #
       #   @return [Boolean]

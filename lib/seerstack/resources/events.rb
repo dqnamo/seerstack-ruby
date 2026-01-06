@@ -2,10 +2,10 @@
 
 module Seerstack
   module Resources
-    class Capture
+    class Events
       # Capture an event
       #
-      # @overload create(name:, data: nil, timestamp: nil, user_id: nil, request_options: {})
+      # @overload capture(name:, data: nil, timestamp: nil, user_id: nil, request_options: {})
       #
       # @param name [String]
       # @param data [Hash{Symbol=>Object, nil}]
@@ -13,16 +13,16 @@ module Seerstack
       # @param user_id [String]
       # @param request_options [Seerstack::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Seerstack::Models::CaptureCreateResponse]
+      # @return [Seerstack::Models::EventCaptureResponse]
       #
-      # @see Seerstack::Models::CaptureCreateParams
-      def create(params)
-        parsed, options = Seerstack::CaptureCreateParams.dump_request(params)
+      # @see Seerstack::Models::EventCaptureParams
+      def capture(params)
+        parsed, options = Seerstack::EventCaptureParams.dump_request(params)
         @client.request(
           method: :post,
           path: "capture",
           body: parsed,
-          model: Seerstack::Models::CaptureCreateResponse,
+          model: Seerstack::Models::EventCaptureResponse,
           options: options
         )
       end

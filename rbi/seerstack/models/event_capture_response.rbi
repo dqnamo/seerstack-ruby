@@ -2,11 +2,11 @@
 
 module Seerstack
   module Models
-    class CaptureCreateResponse < Seerstack::Internal::Type::BaseModel
+    class EventCaptureResponse < Seerstack::Internal::Type::BaseModel
       OrHash =
         T.type_alias do
           T.any(
-            Seerstack::Models::CaptureCreateResponse,
+            Seerstack::Models::EventCaptureResponse,
             Seerstack::Internal::AnyHash
           )
         end

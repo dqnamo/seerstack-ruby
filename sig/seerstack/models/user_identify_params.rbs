@@ -1,6 +1,6 @@
 module Seerstack
   module Models
-    type identify_create_params =
+    type user_identify_params =
       {
         user_id: String,
         attributes: ::Hash[Symbol, top?],
@@ -9,7 +9,7 @@ module Seerstack
       }
       & Seerstack::Internal::Type::request_parameters
 
-    class IdentifyCreateParams < Seerstack::Internal::Type::BaseModel
+    class UserIdentifyParams < Seerstack::Internal::Type::BaseModel
       extend Seerstack::Internal::Type::RequestParameters::Converter
       include Seerstack::Internal::Type::RequestParameters
 

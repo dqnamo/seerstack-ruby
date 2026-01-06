@@ -2,13 +2,13 @@
 
 module Seerstack
   module Models
-    class IdentifyCreateParams < Seerstack::Internal::Type::BaseModel
+    class UserIdentifyParams < Seerstack::Internal::Type::BaseModel
       extend Seerstack::Internal::Type::RequestParameters::Converter
       include Seerstack::Internal::Type::RequestParameters
 
       OrHash =
         T.type_alias do
-          T.any(Seerstack::IdentifyCreateParams, Seerstack::Internal::AnyHash)
+          T.any(Seerstack::UserIdentifyParams, Seerstack::Internal::AnyHash)
         end
 
       sig { returns(String) }

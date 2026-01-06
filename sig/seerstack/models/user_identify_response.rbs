@@ -1,8 +1,8 @@
 module Seerstack
   module Models
-    type identify_create_response = { success: bool }
+    type user_identify_response = { success: bool }
 
-    class IdentifyCreateResponse < Seerstack::Internal::Type::BaseModel
+    class UserIdentifyResponse < Seerstack::Internal::Type::BaseModel
       attr_accessor success: bool
 
       def initialize: (success: bool) -> void

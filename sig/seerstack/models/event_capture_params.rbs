@@ -1,6 +1,6 @@
 module Seerstack
   module Models
-    type capture_create_params =
+    type event_capture_params =
       {
         name: String,
         data: ::Hash[Symbol, top?],
@@ -9,7 +9,7 @@ module Seerstack
       }
       & Seerstack::Internal::Type::request_parameters
 
-    class CaptureCreateParams < Seerstack::Internal::Type::BaseModel
+    class EventCaptureParams < Seerstack::Internal::Type::BaseModel
       extend Seerstack::Internal::Type::RequestParameters::Converter
       include Seerstack::Internal::Type::RequestParameters
 

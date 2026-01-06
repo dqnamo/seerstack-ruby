@@ -40,7 +40,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Seerstack::Errors::InternalServerError) do
-      seerstack.capture.create(name: "name")
+      seerstack.events.capture(name: "name")
     end
 
     assert_requested(:any, /./, times: 3)
@@ -52,7 +52,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 3)
 
     assert_raises(Seerstack::Errors::InternalServerError) do
-      seerstack.capture.create(name: "name")
+      seerstack.events.capture(name: "name")
     end
 
     assert_requested(:any, /./, times: 4)
@@ -64,7 +64,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Seerstack::Errors::InternalServerError) do
-      seerstack.capture.create(name: "name", request_options: {max_retries: 3})
+      seerstack.events.capture(name: "name", request_options: {max_retries: 3})
     end
 
     assert_requested(:any, /./, times: 4)
@@ -76,7 +76,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 3)
 
     assert_raises(Seerstack::Errors::InternalServerError) do
-      seerstack.capture.create(name: "name", request_options: {max_retries: 4})
+      seerstack.events.capture(name: "name", request_options: {max_retries: 4})
     end
 
     assert_requested(:any, /./, times: 5)
@@ -92,7 +92,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 1)
 
     assert_raises(Seerstack::Errors::InternalServerError) do
-      seerstack.capture.create(name: "name")
+      seerstack.events.capture(name: "name")
     end
 
     assert_requested(:any, /./, times: 2)
@@ -110,7 +110,7 @@ class SeerstackTest < Minitest::Test
 
     assert_raises(Seerstack::Errors::InternalServerError) do
       Thread.current.thread_variable_set(:time_now, Time.now)
-      seerstack.capture.create(name: "name")
+      seerstack.events.capture(name: "name")
       Thread.current.thread_variable_set(:time_now, nil)
     end
 
@@ -128,7 +128,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 1)
 
     assert_raises(Seerstack::Errors::InternalServerError) do
-      seerstack.capture.create(name: "name")
+      seerstack.events.capture(name: "name")
     end
 
     assert_requested(:any, /./, times: 2)
@@ -141,7 +141,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Seerstack::Errors::InternalServerError) do
-      seerstack.capture.create(name: "name")
+      seerstack.events.capture(name: "name")
     end
 
     3.times do
@@ -155,7 +155,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Seerstack::Errors::InternalServerError) do
-      seerstack.capture.create(
+      seerstack.events.capture(
         name: "name",
         request_options: {extra_headers: {"x-stainless-retry-count" => nil}}
       )
@@ -172,7 +172,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Seerstack::Errors::InternalServerError) do
-      seerstack.capture.create(
+      seerstack.events.capture(
         name: "name",
         request_options: {extra_headers: {"x-stainless-retry-count" => "42"}}
       )
@@ -195,7 +195,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Seerstack::Errors::APIConnectionError) do
-      seerstack.capture.create(name: "name", request_options: {extra_headers: {}})
+      seerstack.events.capture(name: "name", request_options: {extra_headers: {}})
     end
 
     recorded, = WebMock::RequestRegistry.instance.requested_signatures.hash.first
@@ -224,7 +224,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Seerstack::Errors::APIConnectionError) do
-      seerstack.capture.create(name: "name", request_options: {extra_headers: {}})
+      seerstack.events.capture(name: "name", request_options: {extra_headers: {}})
     end
 
     assert_requested(:get, "http://localhost/redirected", times: Seerstack::Client::MAX_REDIRECTS) do
@@ -248,7 +248,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Seerstack::Errors::APIConnectionError) do
-      seerstack.capture.create(
+      seerstack.events.capture(
         name: "name",
         request_options: {extra_headers: {"authorization" => "Bearer xyz"}}
       )
@@ -278,7 +278,7 @@ class SeerstackTest < Minitest::Test
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Seerstack::Errors::APIConnectionError) do
-      seerstack.capture.create(
+      seerstack.events.capture(
         name: "name",
         request_options: {extra_headers: {"authorization" => "Bearer xyz"}}
       )
@@ -295,7 +295,7 @@ class SeerstackTest < Minitest::Test
 
     seerstack = Seerstack::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
-    seerstack.capture.create(name: "name")
+    seerstack.events.capture(name: "name")
 
     assert_requested(:any, /./) do |req|
       headers = req.headers.transform_keys(&:downcase).fetch_values("accept", "content-type")

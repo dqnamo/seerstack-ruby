@@ -1,13 +1,13 @@
 module Seerstack
   module Resources
-    class Identify
-      def create: (
+    class Users
+      def identify: (
         user_id: String,
         ?attributes: ::Hash[Symbol, top?],
         ?email: String,
         ?name: String,
         ?request_options: Seerstack::request_opts
-      ) -> Seerstack::Models::IdentifyCreateResponse
+      ) -> Seerstack::Models::UserIdentifyResponse
 
       def initialize: (client: Seerstack::Client) -> void
     end
