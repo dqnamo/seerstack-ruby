@@ -1,0 +1,9 @@
+module Seerstack
+  module Internal
+    extend Seerstack::Internal::Util::SorbetRuntimeSupport
+
+    type file_input = Pathname | StringIO | IO | String | Seerstack::FilePart
+
+    OMIT: Object
+  end
+end
