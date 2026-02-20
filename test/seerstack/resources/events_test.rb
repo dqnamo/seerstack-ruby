@@ -4,7 +4,7 @@ require_relative "../test_helper"
 
 class Seerstack::Test::Resources::EventsTest < Seerstack::Test::ResourceTest
   def test_capture_required_params
-    skip("Prism tests are disabled")
+    skip("Mock server tests are disabled")
 
     response = @seerstack.events.capture(name: "name")
 
